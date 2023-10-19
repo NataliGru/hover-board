@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import { getModes } from './api';
+import { Dropdown } from './dropdown';
 
-function App() {
+export function App() {
+  const [modes, setModes] = useState([]);
+  const [curentSize, setCurrentSize] = useState('');
+
+  useEffect(() => {
+    getModes()
+      .then((data) => {
+        console.log(data, 'data');
+        setModes(data);
+      })
+      .catch((error) => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+  }, []);
+  
+
+  console.log(modes, 'modes');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {modes.length > 0 && (
+        <Dropdown modes={modes} onModeChange={setCurrentSize} />
+      )}
     </div>
   );
 }
-
-export default App;

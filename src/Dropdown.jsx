@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './dropdown.scss';
+import './Dropdown.scss';
 
 export const Dropdown = ({ modes, onModeChange }) => {
   const [isActive, setIsActive] = useState(false);
@@ -11,8 +11,8 @@ export const Dropdown = ({ modes, onModeChange }) => {
 
   const handleModeSelection = (mode) => {
     setSelectedMode(mode);
-    setIsActive(false);
     onModeChange(mode.field);
+    setIsActive(false);
   };
 
   return (

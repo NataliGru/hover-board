@@ -1,0 +1,23 @@
+$smallSquareSize: 40px;
+
+.square-grid {
+  border: 1px solid black;
+  --size: $size;
+  display: grid;
+  grid-template-columns: repeat(var(--size), $smallSquareSize);
+  width: calc(var(--size) * #{$smallSquareSize} );
+  height: calc(var(--size) * #{$smallSquareSize} );
+}
+
+.small-square {
+  box-sizing: border-box;
+  border: 1px solid black;
+  background-color: #fff;
+  width: $smallSquareSize;
+  height: $smallSquareSize;
+  transition: background-color 0.3s;
+}
+
+.small-square:hover {
+  background-color: #3498db;
+}

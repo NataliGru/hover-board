@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.3f00bfb4.css",
-    "main.js": "/static/js/main.c71be6e3.js",
-    "index.html": "/index.html",
-    "main.3f00bfb4.css.map": "/static/css/main.3f00bfb4.css.map",
-    "main.c71be6e3.js.map": "/static/js/main.c71be6e3.js.map"
+    "main.css": "/hover-board/public/static/css/main.3f00bfb4.css",
+    "main.js": "/hover-board/public/static/js/main.c71be6e3.js",
+    "index.html": "/hover-board/public/index.html",
+    "main.3f00bfb4.css.map": "/hover-board/public/static/css/main.3f00bfb4.css.map",
+    "main.c71be6e3.js.map": "/hover-board/public/static/js/main.c71be6e3.js.map"
   },
   "entrypoints": [
     "static/css/main.3f00bfb4.css",

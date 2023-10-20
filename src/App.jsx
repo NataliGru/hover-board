@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from 'react';
 
+import useWindowSize from 'react-use/lib/useWindowSize';
+import Confetti from 'react-confetti';
+
 import './App.scss';
 
-import { getModes } from './api';
-import { Dropdown } from './Dropdown';
-import { MoveList } from './MoveList';
-import { Board } from './Board';
+import { getModes } from './api/api';
+import { Dropdown } from './Dropdown/Dropdown';
+import { MoveList } from './MoveList/MoveList';
+import { Board } from './Board/Board';
 import { Loader } from './Loader/Loader';
 
 export function App() {
   const [modes, setModes] = useState([]);
-  const [currentSize, setCurrentSize] = useState('');
+  const [currentMode, setCurrentMode] = useState({ name: 'Pick mode' });
   const [showBoard, setShowBoard] = useState(false);
   const [moves, setMoves] = useState([]);
+
+  const { width, height } = useWindowSize();
+
+  console.log(currentMode)
 
   useEffect(() => {
     getModes()
@@ -24,10 +31,16 @@ export function App() {
       });
   }, []);
 
-  const handleModeChange = (newSize) => {
+  const handleModeChange = (newMode) => {
     setShowBoard(false);
-    setCurrentSize(newSize);
+    setCurrentMode(newMode);
     setMoves([]);
+  };
+
+  const handleStart = () => {
+    if (currentMode.name !== 'Pick mode') {
+      setShowBoard(true);
+    }
   };
 
   const handleHover = (newMove) => {
@@ -38,6 +51,23 @@ export function App() {
     }
   };
 
+  const handleNextLevel = () => {
+    if (currentMode.name !== 'Pick mode' && modes.length > 0) {
+      if (currentMode.id < modes.length - 1) {
+        const nextMode = modes[currentMode.id];
+        setCurrentMode(nextMode);
+        setMoves([]);
+        setShowBoard(true);
+      }
+    }
+  };
+
+  const onRemoveMove = (moveToRemove) => {
+    setMoves((prevMoves) => prevMoves.filter((move) => move !== moveToRemove));
+  };
+
+  const allFilled = moves.length === currentMode.field ** 2;
+
   return (
     <div className="App">
       {modes.length === 0 && <Loader />}
@@ -45,13 +75,26 @@ export function App() {
         <div className="board-header">
           {modes.length > 0 && (
             <>
-              <Dropdown modes={modes} onModeChange={handleModeChange} />
+              <Dropdown modes={modes} onModeChange={handleModeChange} currentMode={currentMode} />
+
               <button
                 type="button"
-                className="board-start-button"
-                onClick={() => setShowBoard(true)}
+                className={`board-start-button ${
+                  currentMode.name === 'Pick mode' ? 'disabled' : ''
+                }`}
+                onClick={handleStart}
               >
-                START
+                Start
+              </button>
+
+              <button
+                type="button"
+                className={`board-clear-button ${
+                  !showBoard || moves.length === 0 ? 'disabled' : ''
+                }`}
+                onClick={() => setMoves([])}
+              >
+                Clear board
               </button>
             </>
           )}
@@ -60,14 +103,18 @@ export function App() {
         {showBoard && (
           <>
             <Board
-              size={+currentSize}
+              size={+currentMode.field}
               onSquareHover={handleHover}
               currentMoves={moves}
             />
           </>
         )}
       </div>
-      {showBoard && <MoveList moves={moves} />}
+      {showBoard && <MoveList moves={moves} onRemoveMove={onRemoveMove} allFilled={allFilled} handleNextLevel={handleNextLevel} />}
+
+      {allFilled && currentMode !== '' && (
+        <Confetti width={width} height={height} />
+      )}
     </div>
   );
 }

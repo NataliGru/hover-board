@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
 import './Dropdown.scss';
 
-export const Dropdown = ({ modes, onModeChange }) => {
+export const Dropdown = ({ modes, onModeChange, currentMode }) => {
   const [isActive, setIsActive] = useState(false);
-  const [selectedMode, setSelectedMode] = useState({ name: 'Pick mode' });
 
   const toggleDropdown = () => {
     setIsActive(!isActive);
   };
 
   const handleModeSelection = (mode) => {
-    setSelectedMode(mode);
-    onModeChange(mode.field);
+    onModeChange(mode);
     setIsActive(false);
   };
 
   return (
     <div className={`custom-select ${isActive ? 'active' : ''}`}>
       <span className="select-value" onClick={toggleDropdown}>
-        {selectedMode.name}
+        {currentMode.name}
       </span>
       <ul className="options">
         {modes.map((mode) => (

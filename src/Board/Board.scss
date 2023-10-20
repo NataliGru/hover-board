@@ -2,7 +2,7 @@
   --size: $size; 
 }
 
-$max-size: 80vmin;
+$max-size: calc(100vmin - 150px);
 
 .square-grid {
   display: grid;

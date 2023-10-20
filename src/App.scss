@@ -1,9 +1,12 @@
-$max-size: 80vmin;
+$max-size: calc(100vmin - 150px);
 
 .App {
+  box-sizing: border-box;
   padding: 40px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  height: 100vh;
 }
 
 .board {
@@ -11,9 +14,8 @@ $max-size: 80vmin;
 
   &-header {
     display: flex;
-    gap: 30px;
+    gap: 15px;
     width: $max-size;
-
     margin-bottom: 15px;
   }
 }
@@ -22,6 +24,7 @@ $max-size: 80vmin;
 .board-clear-button {
   flex: 1;
   font-weight: bold;
+  font-size: 14px;
 
   cursor: pointer;
   background-color: #3498db;
@@ -30,7 +33,7 @@ $max-size: 80vmin;
   border-radius: 5px;
   border: none;
 
-  padding: 10px 15px;
+  padding: 10px;
   transition: all 0.3s;
 
   &:hover {

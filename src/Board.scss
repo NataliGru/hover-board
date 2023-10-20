@@ -1,20 +1,25 @@
-$smallSquareSize: 40px;
+:root {
+  --size: $size; 
+}
+
+$max-height: 80vmin;
 
 .square-grid {
   border: 1px solid black;
-  --size: $size;
+
   display: grid;
-  grid-template-columns: repeat(var(--size), $smallSquareSize);
-  width: calc(var(--size) * #{$smallSquareSize} );
-  height: calc(var(--size) * #{$smallSquareSize} );
+  grid-template-columns: repeat(var(--size), 1fr);
+  height: $max-height;
+  width: $max-height;
+  max-width: 80%;
 }
 
 .small-square {
   box-sizing: border-box;
   border: 1px solid black;
   background-color: #fff;
-  width: $smallSquareSize;
-  height: $smallSquareSize;
+  width: $max-height / --size;
+  height: $max-height / --size;
   transition: background-color 0.3s;
 }
 

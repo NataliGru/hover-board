@@ -21,7 +21,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "homepage": "https://NataliGru.github.io/hover-board/public"
+    "homepage": "https://NataliGru.github.io/hover-board"
   },
   "eslintConfig": {
     "extends": [

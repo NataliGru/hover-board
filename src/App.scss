@@ -4,9 +4,10 @@ $max-size: calc(100vmin - 150px);
   box-sizing: border-box;
   padding: 40px;
   display: flex;
+  gap: 100px;
   flex-direction: row;
-  justify-content: space-between;
   height: 100vh;
+  max-width: 100vh;
 }
 
 .board {
@@ -33,7 +34,7 @@ $max-size: calc(100vmin - 150px);
   border-radius: 5px;
   border: none;
 
-  padding: 10px;
+  padding: 10px 15px;
   transition: all 0.3s;
 
   &:hover {

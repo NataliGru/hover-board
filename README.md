@@ -11,7 +11,7 @@ Hover your cursor over a square to change its color. When you hover over it agai
 At the start, a dropdown menu labeled `Pick mode` is displayed. It contains difficulty levels for the game.
 After selecting a mode, the `Start` button becomes active. Click it to display the game board.
 After the first hover, the `Clear board` button becomes available to reset the board to its initial state.
-On the right side, a list of selected squares in the format `Row Column` appears after the first hover.
+On the right side, a list of selected squares in the format `row # col #` appears after the first hover.
 For convenience, you can delete any move from the list by clicking the `x` button in the upper right corner of the list item.
 
 ## Objective

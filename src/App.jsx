@@ -6,10 +6,12 @@ import { getModes } from './api';
 import { Dropdown } from './Dropdown';
 import { MoveList } from './MoveList';
 import { Board } from './Board';
+import { Loader } from './Loader/Loader';
 
 export function App() {
   const [modes, setModes] = useState([]);
   const [currentSize, setCurrentSize] = useState('');
+  const [showBoard, setShowBoard] = useState(false);
   const [moves, setMoves] = useState([]);
 
   useEffect(() => {
@@ -22,23 +24,50 @@ export function App() {
       });
   }, []);
 
-  console.log(currentSize, 'currentSize');
+  const handleModeChange = (newSize) => {
+    setShowBoard(false);
+    setCurrentSize(newSize);
+    setMoves([]);
+  };
+
+  const handleHover = (newMove) => {
+    if (moves.includes(newMove)) {
+      setMoves((prevMoves) => prevMoves.filter((move) => move !== newMove));
+    } else {
+      setMoves((prevMoves) => [...prevMoves, newMove]);
+    }
+  };
 
   return (
     <div className="App">
-      <div className="board-part">
-        {modes.length > 0 && (
-          <Dropdown modes={modes} onModeChange={setCurrentSize} />
+      {modes.length === 0 && <Loader />}
+      <div className="board">
+        <div className="board-header">
+          {modes.length > 0 && (
+            <>
+              <Dropdown modes={modes} onModeChange={handleModeChange} />
+              <button
+                type="button"
+                className="board-start-button"
+                onClick={() => setShowBoard(true)}
+              >
+                START
+              </button>
+            </>
+          )}
+        </div>
+
+        {showBoard && (
+          <>
+            <Board
+              size={+currentSize}
+              onSquareHover={handleHover}
+              currentMoves={moves}
+            />
+          </>
         )}
-
-          <button type='button' className='board-start-button'>
-            START
-          </button>
       </div>
-
-      <Board size={+currentSize} onSquareHover={setMoves}/>
-
-      {moves.length > 0 && <MoveList moves={moves} />}
+      {showBoard && <MoveList moves={moves} />}
     </div>
   );
 }

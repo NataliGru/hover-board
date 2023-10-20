@@ -1,9 +1,25 @@
+$max-size: 80vmin;
+
 .App {
-  padding: 20px;
-  
+  padding: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.board {
+  max-width: $max-size;
+
+  &-header {
+    display: flex;
+    gap: 30px;
+    width: $max-size;
+
+    margin-bottom: 15px;
+  }
 }
 
 .board-start-button {
+  flex: 1;
   font-weight: bold;
 
   cursor: pointer;
@@ -14,11 +30,10 @@
   border: none;
 
   padding: 10px 15px;
-  margin: 5px;
   transition: all 0.3s;
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
     box-shadow: 0 2px 4px rgba(0 0 0 / 30%);
   }
 }

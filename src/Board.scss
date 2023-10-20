@@ -2,27 +2,26 @@
   --size: $size; 
 }
 
-$max-height: 80vmin;
+$max-size: 80vmin;
 
 .square-grid {
-  border: 1px solid black;
-
   display: grid;
   grid-template-columns: repeat(var(--size), 1fr);
-  height: $max-height;
-  width: $max-height;
-  max-width: 80%;
+  height: $max-size;
+  width: $max-size;
+
 }
 
 .small-square {
   box-sizing: border-box;
   border: 1px solid black;
   background-color: #fff;
-  width: $max-height / --size;
-  height: $max-height / --size;
+  width: $max-size / --size;
+  height: $max-size / --size;
   transition: background-color 0.3s;
 }
 
+.small-square.active,
 .small-square:hover {
   background-color: #3498db;
 }

@@ -5,6 +5,7 @@ export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [modes, setModes] = useState([]);
+  const [isActiveDropdown, setIsActiveDropdown] = useState(false);
   const [currentMode, setCurrentMode] = useState({ name: 'Pick mode' });
   const [showBoard, setShowBoard] = useState(false);
   const [moves, setMoves] = useState([]);
@@ -40,7 +41,7 @@ export const AppProvider = ({ children }) => {
   };
 
   const handleHover = (newMove) => {
-    if (allFilled) {
+    if (allFilled || isActiveDropdown) {
       return;
     }
 
@@ -72,6 +73,8 @@ export const AppProvider = ({ children }) => {
 
   const contextValue = {
     modes,
+    isActiveDropdown,
+    setIsActiveDropdown,
     size,
     currentMode,
     showBoard,

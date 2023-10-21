@@ -1,17 +1,16 @@
 .custom-select {
-  flex: 2;
   box-sizing: border-box;
+  width: 50%;
   position: relative;
   display: inline-block;
   cursor: pointer;
-  background-color: #fff;
+  background-color: #74B768;
   border-radius: 5px;
-  border: 2px solid #818a8d;
   padding: 10px 15px;
-  color: grey;
+  color: #fff;
   text-align: center;
-  font-size: 18px;
-  font-weight: normal;
+  font-size: 14px;
+  font-weight: bold;
   transition: all 0.3s;
 
   &:hover {
@@ -22,16 +21,18 @@
 
 .custom-select .select-value {
   display: block;
+  text-align: center;
+  padding: 10px 15px;
 }
 
 .custom-select .options {
+  text-align: center;
   display: none;
   position: absolute;
   top: 100%;
   width: 100%;
   left: 0;
-  background-color: #fff;
-  border: 2px solid #818a8d;
+  background-color: #8DD181;
   border-radius: 5px;
   list-style: none;
   margin: 0;
@@ -41,16 +42,18 @@
 
 .custom-select .options li {
   padding: 10px;
+  border: 1px solid #396331;
+  border-radius: 5px;
+  font-size: 12px;
   transition: all 0.3s;
   text-align: center;
 }
 
 .custom-select .options li:hover {
-  background-color: #ccc;
+  background-color: #AADCA1;
   font-weight: 700;
 }
 
 .custom-select.active .options {
   display: block;
-  border: 2px solid #818a8d;
 }

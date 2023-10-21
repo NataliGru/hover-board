@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Dropdown.scss';
+import { AppContext } from '../AppContext/AppContext';
 
-export const Dropdown = ({ modes, onModeChange, currentMode }) => {
+export const Dropdown = () => {
   const [isActive, setIsActive] = useState(false);
+
+  const { 
+    modes, 
+    handleModeChange, 
+    currentMode 
+  } = useContext(AppContext);
 
   const toggleDropdown = () => {
     setIsActive(!isActive);
   };
 
   const handleModeSelection = (mode) => {
-    onModeChange(mode);
+    handleModeChange(mode);
     setIsActive(false);
   };
 

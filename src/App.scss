@@ -4,10 +4,10 @@ $max-size: calc(100vmin - 150px);
   box-sizing: border-box;
   padding: 40px;
   display: flex;
-  gap: 100px;
   flex-direction: row;
+  justify-content: space-between;
   height: 100vh;
-  max-width: 100vh;
+  width: 100vw;
 }
 
 .board {
@@ -18,65 +18,5 @@ $max-size: calc(100vmin - 150px);
     gap: 15px;
     width: $max-size;
     margin-bottom: 15px;
-  }
-}
-
-.board-start-button,
-.board-clear-button {
-  flex: 1;
-  font-weight: bold;
-  font-size: 14px;
-
-  cursor: pointer;
-  background-color: #3498db;
-  color: #fff;
-
-  border-radius: 5px;
-  border: none;
-
-  padding: 10px 15px;
-  transition: all 0.3s;
-
-  &:hover {
-    transform: scale(1.15);
-    box-shadow: 0 2px 4px rgba(0 0 0 / 30%);
-  }
-}
-
-.board-start-button.disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-
-  &:hover::before {
-    content: "Please select a board mode first";
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #ff0000;
-    color: #ffffff;
-    padding: 5px;
-    border-radius: 5px;
-    z-index: 1;
-  }
-} 
-
-.board-clear-button {
-  background-color: #ff8276;
-}
-
-.board-clear-button.disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-
-  &:hover::before {
-    content: "To clear the board, you need to hover over the squares first";
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #ff0000;
-    color: #ffffff;
-    padding: 5px;
-    border-radius: 5px;
-    z-index: 1;
   }
 }

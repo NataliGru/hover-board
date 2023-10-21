@@ -1,9 +1,17 @@
 import './Board.scss';
+import React, { useContext } from 'react';
+import { AppContext } from '../AppContext/AppContext';
 
-export const Board = ({ size, onSquareHover, currentMoves }) => {
-  const handleSquareEnter = (row, col) => {
+export const Board = () => {
+  const { size, moves, handleHover } = useContext(AppContext);
+
+  const handleCellHover = (row, col) => {
+    if (!moves) {
+      return;
+    }
+
     const move = `row ${row} col ${col}`;
-    onSquareHover(move);
+    handleHover(move);
   };
 
   return (
@@ -12,13 +20,13 @@ export const Board = ({ size, onSquareHover, currentMoves }) => {
         const row = Math.floor(index / size + 1);
         const col = (index % size) + 1;
         const move = `row ${row} col ${col}`;
-        const isActive = currentMoves.includes(move);
+        const isActive = moves.includes(move);
 
         return (
           <div
             key={index}
             className={`small-square ${isActive ? 'active' : ''}`}
-            onMouseEnter={() => handleSquareEnter(row, col)}
+            onMouseEnter={() => handleCellHover(row, col)}
           ></div>
         );
       })}

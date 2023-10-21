@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import './MoveList.scss';
+import { AppContext } from '../AppContext/AppContext';
 
-export const MoveList = ({
-  moves,
-  onRemoveMove,
-  allFilled,
-  handleNextLevel,
-}) => {
+export const MoveList = () => {
+  const {
+    moves,
+    onRemoveMove,
+    allFilled,
+    handleNextLevel,
+  } = useContext(AppContext);
+  
   return (
     <div className="move-list">
       {moves.length > 0 && !allFilled && (

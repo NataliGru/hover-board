@@ -6,6 +6,8 @@ This is a React-based game.
 
 Hover your cursor over a square to change its color. When you hover over it again, it will return to its initial color.
 
+_Hint: if you want to quickly see the winner's effect, select the "name 4" mode and fill in all the cells_ :)
+
 ## How to Use
 
 At the start, a dropdown menu labeled `Pick mode` is displayed. It contains difficulty levels for the game.

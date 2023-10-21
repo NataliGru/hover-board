@@ -1,4 +1,4 @@
-## Hover Board
+## [Hover Board](https://nataligru.github.io/hover-board/)
 
 This is a React-based game.
 

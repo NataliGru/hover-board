@@ -16,8 +16,9 @@ export const Dropdown = () => {
     setIsActiveDropdown(false);
   };
 
-  const handleMouseEnter = () => {
-    setIsActiveDropdown(true);
+
+  const handleDropdownClick = () => {
+    setIsActiveDropdown(!isActiveDropdown);
   };
 
   const handleMouseLeave = () => {
@@ -27,10 +28,12 @@ export const Dropdown = () => {
   return (
     <div
       className={`custom-select ${isActiveDropdown ? 'active' : ''}`}
-      onMouseEnter={handleMouseEnter}
+      onClick={handleDropdownClick}
       onMouseLeave={handleMouseLeave}
     >
-      <span className="select-value">{currentMode.name}</span>
+      <span className="select-value">{currentMode.name}
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
       <ul className="options">
         {modes.map((mode) => (
           <li key={mode.id} onClick={() => handleModeSelection(mode)}>

@@ -20,7 +20,10 @@
 }
 
 .custom-select .select-value {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   text-align: center;
   padding: 10px 15px;
 }

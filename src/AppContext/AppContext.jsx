@@ -10,10 +10,6 @@ export const AppProvider = ({ children }) => {
   const [showBoard, setShowBoard] = useState(false);
   const [moves, setMoves] = useState([]);
 
-
-
-  console.log(currentMode)
-
   useEffect(() => {
     getModes()
       .then((data) => {

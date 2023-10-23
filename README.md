@@ -1,10 +1,12 @@
-## Hover Board
+## [Hover Board](https://nataligru.github.io/hover-board/)
 
 This is a React-based game.
 
 ## Rules
 
 Hover your cursor over a square to change its color. When you hover over it again, it will return to its initial color.
+
+_Hint: if you want to quickly see the winner's effect, select the "name 4" mode and fill in all the cells_ :)
 
 ## How to Use
 

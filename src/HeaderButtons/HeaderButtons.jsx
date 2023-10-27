@@ -16,7 +16,7 @@ export const HeaderButtons = () => {
         <button
           type="button"
           className={`board-start-button ${
-            currentMode.name === 'Pick mode' || moves.length > 0
+            currentMode.name === 'Pick mode' || moves.length > 0 || showBoard
               ? 'disabled'
               : ''
           }`}

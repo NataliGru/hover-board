@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/hover-board/static/css/main.4f5bf503.css",
-    "main.js": "/hover-board/static/js/main.61ad6eca.js",
+    "main.js": "/hover-board/static/js/main.fa4841b7.js",
     "static/media/fa-solid-900.ttf": "/hover-board/static/media/fa-solid-900.d75e3fd1eb12e9bd6655.ttf",
     "static/media/fa-brands-400.ttf": "/hover-board/static/media/fa-brands-400.016b4a6cdced82ab3aa1.ttf",
     "static/media/fa-solid-900.woff2": "/hover-board/static/media/fa-solid-900.b6879d41b0852f01ed5b.woff2",
@@ -12,10 +12,10 @@
     "static/media/fa-v4compatibility.woff2": "/hover-board/static/media/fa-v4compatibility.1bac2991f3dbfa237aec.woff2",
     "index.html": "/hover-board/index.html",
     "main.4f5bf503.css.map": "/hover-board/static/css/main.4f5bf503.css.map",
-    "main.61ad6eca.js.map": "/hover-board/static/js/main.61ad6eca.js.map"
+    "main.fa4841b7.js.map": "/hover-board/static/js/main.fa4841b7.js.map"
   },
   "entrypoints": [
     "static/css/main.4f5bf503.css",
-    "static/js/main.61ad6eca.js"
+    "static/js/main.fa4841b7.js"
   ]
 }
